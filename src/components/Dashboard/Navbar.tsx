@@ -4,7 +4,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "../../../@/components/ui/popover"
-import { ModeToggle } from "../mood-toggle";
+// import { ModeToggle } from "../mood-toggle";
 
 interface listItemType {
   listItem: string;
@@ -18,7 +18,7 @@ const Navbar = () => {
         <p className="font-bold text-3xl">Trivecta Quick Connect</p>
       </div>
       <div className="flex items-center">
-        <ModeToggle />
+        {/* <ModeToggle /> */}
         <AvatarIcon />
       </div>
     </div>

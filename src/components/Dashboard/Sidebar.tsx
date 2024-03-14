@@ -12,7 +12,7 @@ interface SidebarListItemProps {
 }
 
 const Sidebar = () => {
-  const { currentPage, setCurrentPage } = useZustStore();
+  const { currentPage } = useZustStore();
 
   return (
     <div>

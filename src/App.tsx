@@ -4,14 +4,14 @@ import Home from "./pages/Home";
 import Layout from "./components/Dashboard/Layout";
 import Templates from "./pages/Templates";
 import Customers from "./pages/Customers";
-import { ThemeProvider } from "./components/theme-provider"
+// import { ThemeProvider } from "./components/theme-provider"
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        {/* <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme"> */}
         <Routes>
           <Route path="/dashboard/*" element={<Layout />}>
             <Route path="" element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
             <Route path="customers" element={<Customers />} />
           </Route>
         </Routes>
-          </ThemeProvider>
+          {/* </ThemeProvider> */}
       </BrowserRouter>
     </>
   );

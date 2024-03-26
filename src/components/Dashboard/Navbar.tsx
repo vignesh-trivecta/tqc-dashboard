@@ -1,9 +1,13 @@
-import { Avatar, AvatarFallback, AvatarImage } from "../../../@/components/ui/avatar"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "../../../@/components/ui/avatar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "../../../@/components/ui/popover"
+} from "../../../@/components/ui/popover";
 // import { ModeToggle } from "../mood-toggle";
 
 interface listItemType {
@@ -12,7 +16,7 @@ interface listItemType {
 
 const Navbar = () => {
   return (
-    <div className='flex justify-between items-center border-b-2 p-6'>
+    <div className="flex justify-between items-center border-b-2 p-6">
       <div className="flex justify-between items-center">
         <img src="/tqc.png" width={50} height={50} />
         <p className="font-bold text-3xl">Trivecta Quick Connect</p>
@@ -22,48 +26,47 @@ const Navbar = () => {
         <AvatarIcon />
       </div>
     </div>
-  )
-}
+  );
+};
 
 const AvatarIcon = () => {
-  return( 
+  return (
     <>
       <Popover>
         <PopoverTrigger>
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" className="h-10 w-10 rounded-full" />
-          <AvatarFallback>User</AvatarFallback>
-        </Avatar>
+          <Avatar>
+            <AvatarImage
+              src="https://github.com/shadcn.png"
+              className="h-10 w-10 rounded-full"
+            />
+            <AvatarFallback>User</AvatarFallback>
+          </Avatar>
         </PopoverTrigger>
         <PopoverContent>
           <UserDropDown />
         </PopoverContent>
       </Popover>
     </>
-  )
-}
+  );
+};
 
 const UserDropDown = () => {
-  return(
-    <div className="border-2 p-2 bg-white -mt-4 rounded-xl">
+  return (
+    <div className="border-2 p-2 bg-white -mt-4 rounded-lg">
       <ul className="space-y-2">
-        <UserOptionsList
-          listItem={"Settings"}
-        />
-        <UserOptionsList
-          listItem={"Sign Out"}
-        />
+        {/* <UserOptionsList listItem={"Settings"} /> */}
+        <UserOptionsList listItem={"Sign Out"} />
       </ul>
     </div>
-  )
-}
+  );
+};
 
-const UserOptionsList: React.FC<listItemType> = ({listItem}) => {
-  return(
-    <li className="hover:bg-gray-100 p-2 hover:cursor-pointer" style={{borderRadius: '0.5rem'}}>
+const UserOptionsList: React.FC<listItemType> = ({ listItem }) => {
+  return (
+    <li className="hover:bg-gray-100 p-2 hover:cursor-pointer hover:rounded-lg">
       {listItem}
     </li>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

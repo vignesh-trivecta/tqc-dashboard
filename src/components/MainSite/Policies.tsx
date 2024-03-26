@@ -1,4 +1,3 @@
-import React from 'react'
 // import { PrivacyPolicies } from '../constants/PrivacyPolicies'
 import { Link } from 'react-router-dom'
 
@@ -45,11 +44,11 @@ const PrivacyPolicies = [
   }
 ]
 
-const Section = ({datas}) => {
+const Section:React.FC<any> = ({datas}) => {
   return (
     <div className='mt-4 space-y-2'>
       {
-        datas.map((data, index) => (
+        datas.map((data: any, index: number) => (
           <div key={index}>
             <span className='font-semibold text-lg'>{data.title}</span>: <span>{data.content}</span>
           </div>
@@ -59,7 +58,7 @@ const Section = ({datas}) => {
   )
 }
 
-const Subtitle = ({datas}) => {
+const Subtitle:React.FC<any> = ({datas}) => {
   return (
     <div className='mt-2'>
       <p className='font-semibold text-xl underline'>{datas.title}:</p>

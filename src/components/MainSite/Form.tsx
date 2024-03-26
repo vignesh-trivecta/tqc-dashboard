@@ -1,8 +1,5 @@
-import React from 'react'
-import FBbutton from './FBbutton'
+import FBbutton from './FBbutton.tsx';
 import { FaMessage } from "react-icons/fa6";
-import LinkWithLabel from './LinkWithLabel';
-
 
 const Form = () => {
   return (

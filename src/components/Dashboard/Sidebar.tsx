@@ -1,7 +1,14 @@
 import "../../index.css";
 import { Link } from "react-router-dom";
-import { useZustStore } from "../../store/store";
-import { Home, LucideIcon, LayoutTemplate, Users } from "lucide-react"
+import {
+  Home,
+  LucideIcon,
+  LayoutTemplate,
+  Users,
+  Settings,
+} from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentPage } from "../../store/pageSlice";
 
 interface SidebarListItemProps {
   title: string;
@@ -12,7 +19,7 @@ interface SidebarListItemProps {
 }
 
 const Sidebar = () => {
-  const { currentPage } = useZustStore();
+  const currentPage = useSelector((state: any) => state.page.currentPage);
 
   return (
     <div>
@@ -38,6 +45,13 @@ const Sidebar = () => {
           page={"customers"}
           currentPage={currentPage}
         />
+        <SidebarListItem
+          title={"Settings"}
+          Icon={Settings}
+          to={"/dashboard/settings"}
+          page={"settings"}
+          currentPage={currentPage}
+        />
       </ul>
     </div>
   );
@@ -50,22 +64,22 @@ const SidebarListItem: React.FC<SidebarListItemProps> = ({
   page,
   currentPage,
 }) => {
-  const { setCurrentPage } = useZustStore();
+  const dispatch = useDispatch();
 
   const handleClick = (value: string) => {
-    setCurrentPage(value);
+    dispatch(setCurrentPage(value));
   };
 
   return (
     <li onClick={() => handleClick(page)}>
       <Link
         to={to}
-        className={`sidebar-item space-x-2 ${
-          currentPage === page ? "bg-black text-white" : ""
+        className={`sidebar-item space-x-0 lg:space-x-2 ${
+          currentPage === page ? "bg-green-500 text-white" : ""
         }`}
       >
-        <Icon className="w-4 h-4" />
-        <span className="text-lg">{title}</span>
+        <Icon className="w-4 h-4 hidden lg:block" />
+        <span className="text-sm lg:text-lg">{title}</span>
       </Link>
     </li>
   );

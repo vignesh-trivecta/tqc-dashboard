@@ -1,4 +1,3 @@
-import React from 'react';
 // import { listItems } from '../constants/ListItems';
 import { TfiArrowCircleRight } from "react-icons/tfi";
 import { Link } from 'react-router-dom';

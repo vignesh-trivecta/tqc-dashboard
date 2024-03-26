@@ -4,15 +4,15 @@ import Sidebar from "./Sidebar";
 
 const Layout = () => {
   return (
-    <div className="">
+    <div className="grid grid-rows-2 h-44">
       <div className="">
         <Navbar />
       </div>
-      <div className="flex gap-5">
-        <div className="border-r-2 h-[85vh] hidden md:block">
+      <div className="grid grid-cols-6 overflow-x-hidden h-[85vh]">
+        <div className="border-r-2 col-start-1 col-span-1 hidden md:block">
           <Sidebar />
         </div>
-        <div className="p-6">
+        <div className="col-start-2 col-end-7 p-6">
           <Outlet />
         </div>
       </div>

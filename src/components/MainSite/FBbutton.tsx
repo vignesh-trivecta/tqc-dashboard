@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
-import { FaFacebook } from "react-icons/fa";
+import { useEffect } from 'react';
+// import { FaFacebook } from "react-icons/fa";
 import { Facebook } from 'lucide-react';
 
-const FBbutton = () => {
+declare const window: any;
 
+const FBbutton = () => {
   useEffect(() => {
     // Load the Facebook SDK asynchronously
     window.fbAsyncInit = function () {
@@ -18,16 +19,16 @@ const FBbutton = () => {
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
-      js = d.createElement(s);
+      js = d.createElement(s) as HTMLScriptElement;
       js.id = id;
       js.src = 'https://connect.facebook.net/en_US/sdk.js';
-      fjs.parentNode.insertBefore(js, fjs);
+      fjs.parentNode?.insertBefore(js, fjs);
     })(document, 'script', 'facebook-jssdk');
   }, []);
 
   const launchWhatsAppSignup = () => {
     window.FB.login(
-      function (response) {
+      function (response: { authResponse: { accessToken: any; }; }) {
         if (response.authResponse) {
           const accessToken = response.authResponse.accessToken;
           console.log(accessToken);
@@ -36,7 +37,7 @@ const FBbutton = () => {
             '/me',
             'GET',
             {"fields":"id,name"},
-            function(response) {
+            function(response: any) {
               console.log(response);
             }
           );

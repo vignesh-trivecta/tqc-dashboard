@@ -1,21 +1,24 @@
-import { create, StateCreator } from 'zustand'
-import { devtools, persist } from 'zustand/middleware'
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import pageSliceReducer from "./pageSlice"; // Import the slice reducer
+import multiSelectSliceReducer from "./multiSelectSlice";
 
-
-interface sidebarSlice {
-  currentPage: string
-  setCurrentPage: (value: string) => void
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ['page']
 }
 
-const createSidebarSlice: StateCreator<
-  sidebarSlice> = (set) => ({
-  currentPage: "home",
-  setCurrentPage: (value: string) => set({ currentPage: value }),
+const rootReducer = combineReducers({
+  page: pageSliceReducer,
+  multiSelect: multiSelectSliceReducer,
 })
 
-export const useZustStore = create<sidebarSlice >()( devtools(
-  persist(
-    createSidebarSlice,
-    { name: 'appStore' },
-  ),
-),)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+})
+
+export const persistor = persistStore(store);

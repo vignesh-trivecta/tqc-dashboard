@@ -10,18 +10,18 @@ import {
 } from "../store/multiSelectSlice";
 import { useEffect } from "react";
 
-const customersList = [
-  { id: 1, name: "All", phone: 1 },
-  { id: 2, name: "Suresh", phone: 9876543210 },
-  { id: 3, name: "Ramesh", phone: 7410852963 },
-  { id: 4, name: "Ganesh", phone: 8529637410 },
-  { id: 5, name: "Suresh", phone: 9876543210 },
-  { id: 6, name: "Ramesh", phone: 7410852963 },
-  { id: 7, name: "Ganesh", phone: 8529637410 },
-  { id: 8, name: "Suresh", phone: 9876543210 },
-  { id: 9, name: "Ramesh", phone: 7410852963 },
-  { id: 10, name: "Ganesh", phone: 8529637410 },
-];
+// const customersList = [
+//   { id: 1, name: "All", phone: 1 },
+//   { id: 2, name: "Suresh", phone: 9876543210 },
+//   { id: 3, name: "Ramesh", phone: 7410852963 },
+//   { id: 4, name: "Ganesh", phone: 8529637410 },
+//   { id: 5, name: "Suresh", phone: 9876543210 },
+//   { id: 6, name: "Ramesh", phone: 7410852963 },
+//   { id: 7, name: "Ganesh", phone: 8529637410 },
+//   { id: 8, name: "Suresh", phone: 9876543210 },
+//   { id: 9, name: "Ramesh", phone: 7410852963 },
+//   { id: 10, name: "Ganesh", phone: 8529637410 },
+// ];
 
 const Templates = () => {
   const dispatch = useDispatch();
@@ -107,6 +107,7 @@ const Templates = () => {
             )}
           </div>
         </div>
+        {/* Templates Selection box */}
         <div className="flex flex-col outline-none">
           <label>Select a Template:</label>
           <select

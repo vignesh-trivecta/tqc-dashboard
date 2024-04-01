@@ -25,7 +25,7 @@ export default function DialogBox({ DialogIcon, title, comp }: PropsTypes) {
         <button
           type="button"
           onClick={openModal}
-          className="flex items-center rounded-lg bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          className="flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
         >
           <DialogIcon />
           <span className="ml-2">Add Customer</span>

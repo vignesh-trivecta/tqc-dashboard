@@ -17,7 +17,7 @@ const ListItems = () => {
         listItems.map((item) => (
             <li 
                 key={item.index} 
-                className='flex items-start md:items-center space-x-2'
+                className='flex items-start md:items-center space-x-2 break-words'
             >
                 <TfiArrowCircleRight className='text-green-600 h-6 w-6' />
                 <div className='text-base'>

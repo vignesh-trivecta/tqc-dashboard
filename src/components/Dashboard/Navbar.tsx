@@ -16,7 +16,7 @@ interface listItemType {
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center border-b-2 p-6">
+    <div className="flex justify-between items-center border-b-2 p-6 fixed inset-x-0 top-0 z-50">
       <div className="flex justify-between items-center">
         <img src="/tqc.png" width={50} height={50} />
         <p className="font-bold text-3xl">Trivecta Quick Connect</p>

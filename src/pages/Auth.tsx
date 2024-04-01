@@ -9,7 +9,7 @@ const Auth = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="flex flex-col lg:flex-row justify-around items-center p-4 lg:p-0 space-y-6 lg:space-y-0">
+    <div className="flex flex-col lg:flex-row justify-around items-center p-4 lg:p-0 space-y-6">
       {/* <div className='w-1/2 flex flex-col justify-center items-center gap-4'>
         <p className='font-bold text-2xl'>Welcome to Trivecta Qucik Connect</p>
         <img src='tqc.png' alt='Trivecta Quick Connect' width={150} height={150} />
@@ -18,7 +18,7 @@ const Auth = () => {
         <ServiceList />
       </div>
       <div className="flex justify-center">
-        <form className="border-2 border-gray-300 p-10 rounded-lg shadow-lg mt-12">
+        <form className="border border-1 border-gray-300 p-10 rounded-lg shadow-lg mt-12 w-80">
           <div className="font-bold text-xl mb-4">
             {pathname == "/sign-in" ? (
               <div>
@@ -40,13 +40,21 @@ const Auth = () => {
             </button>
           </div>
           <p className="mt-4">
-            Not a User?{" "}
-            <Link
-              to={pathname == "/sign-in" ? "/sign-up" : "/sign-in"}
-              className="underline"
-            >
-              {pathname == "/sign-in" ? "Sign Up" : "Sign In"}
-            </Link>
+            {pathname == "/sign-in" ? (
+              <>
+                <span>Don't have an account? </span>
+                <Link to={"/sign-up"} className="underline">
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              <>
+                <span>Already have an account? </span>
+                <Link to={"/sign-in"} className="underline">
+                  Sign In
+                </Link>
+              </>
+            )}
           </p>
         </form>
       </div>
@@ -56,7 +64,7 @@ const Auth = () => {
 
 const InputWithLabel: React.FC<IpLabel> = ({ label }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1 mt-4">
       <label className="">{label}:</label>
       <input className="border border-gray-300 rounded-lg p-1" />
     </div>
